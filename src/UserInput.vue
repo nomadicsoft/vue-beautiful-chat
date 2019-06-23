@@ -114,6 +114,7 @@ export default {
   data () {
     return {
       file: null,
+      emoji: [],
       inputActive: false,
       store
     }
@@ -149,17 +150,18 @@ export default {
     _submitText (event) {
       const text = this.$refs.userInput.textContent
       const file = this.file
+      const emoji = this.emoji
       if (file) {
         this._submitTextWhenFile(event, text, file)
-      } else {
-        if (text && text.length > 0) {
+      } else if (emoji.length > 0) {
+        this._submitTextWhenEmoji(event, text, emoji)
+      } else if (text && text.length > 0) {
           this.onSubmit({
             author: 'me',
             type: 'text',
             data: { text }
           });
           this.$refs.userInput.innerHTML = ''
-        }
       }
     },
     _submitTextWhenFile(event, text, file) {
@@ -180,6 +182,24 @@ export default {
         this.file = null
       }
     },
+    _submitTextWhenEmoji(event, text, emojiList) {
+      if (emojiList.length === 1 && text.length === 2) {
+        const [emoji] = emojiList
+        this.onSubmit({
+          author: 'me',
+          type: 'emoji',
+          data: { emoji }
+        })
+      } else {  
+        this.onSubmit({
+          author: 'me',
+          type: 'text',
+          data: { text }
+        })
+      }
+      this.emoji = []
+      this.$refs.userInput.innerHTML = ''
+    },
     _editText (event) {
       const text = this.$refs.userInput.textContent;
       if (text && text.length) {
@@ -193,11 +213,14 @@ export default {
       }
     },
     _handleEmojiPicked (emoji) {
-      this.onSubmit({
-        author: 'me',
-        type: 'emoji',
-        data: { emoji }
-      })
+      // this.onSubmit({
+      //   author: 'me',
+      //   type: 'emoji',
+      //   data: { emoji }
+      // })
+      console.log({ emoji })
+      this.emoji.push(emoji)
+      this.$refs.userInput.textContent += emoji
     },
     _handleFileSubmit (file) {
       this.file = file
