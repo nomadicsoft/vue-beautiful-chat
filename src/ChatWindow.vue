@@ -51,6 +51,7 @@
       :suggestions="getSuggestions()"
       :showFile="showFile"
       :placeholder="placeholder"
+      :icons="icons"
       @onType="$emit('onType')"
       @edit="$emit('edit', $event)"
       :colors="colors" />
@@ -63,6 +64,9 @@ import MessageList from './MessageList.vue'
 import UserInput from './UserInput.vue'
 import UserList from './UserList.vue'
 
+import FileIcon from './assets/file.svg'
+import CloseIconSvg from './assets/close.svg'
+
 export default {
   components: {
     Header,
@@ -71,6 +75,22 @@ export default {
     UserList
   },
   props: {
+    icons: {
+      type: Object,
+      required: false,
+      default: function () {
+        return {
+          file:{
+            img: FileIcon,
+            name: 'default',
+          },
+          closeSvg:{
+            img: CloseIconSvg,
+            name: 'default',
+          },
+        }
+      }
+    },
     showEmoji: {
       type: Boolean,
       default: false
