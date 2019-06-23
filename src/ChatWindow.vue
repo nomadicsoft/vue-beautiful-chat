@@ -6,6 +6,7 @@
       :onClose="onClose"
       :colors="colors"
       :disableUserListToggle="disableUserListToggle"
+      :closeIcon="icons.closeBig"
       @userList="handleUserListToggle"
     >
       <template>
@@ -66,6 +67,7 @@ import UserList from './UserList.vue'
 
 import FileIcon from './assets/file.svg'
 import CloseIconSvg from './assets/close.svg'
+import CloseIconBig from './assets/close-icon-big.png'
 
 export default {
   components: {
@@ -88,6 +90,10 @@ export default {
             img: CloseIconSvg,
             name: 'default',
           },
+          closeBig: {
+            img: CloseIconBig,
+            name: 'close',
+          }
         }
       }
     },

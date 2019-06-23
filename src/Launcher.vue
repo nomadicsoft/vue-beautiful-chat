@@ -58,6 +58,7 @@ import CloseIcon from './assets/close-icon.png'
 import OpenIcon from './assets/logo-no-bg.svg'
 import FileIcon from './assets/file.svg'
 import CloseIconSvg from './assets/close.svg'
+import CloseIconBig from './assets/close-icon-big.png'
 
 export default {
   props: {
@@ -74,7 +75,7 @@ export default {
               img: CloseIcon,
               name: 'default',
             },
-           file:{
+            file:{
               img: FileIcon,
               name: 'default',
             },
@@ -82,8 +83,16 @@ export default {
               img: CloseIconSvg,
               name: 'default',
             },
+            closeBig: {
+              img: CloseIconBig,
+              name: 'default',
+            }
         }
       }
+    },
+    baseUrl: {
+      type: String,
+      default: () => ''
     },
     showEmoji: {
       type: Boolean,

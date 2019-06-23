@@ -6,7 +6,7 @@
       <div v-else class="sc-header--title"> {{title}} </div>
     </slot>
       <div class="sc-header--close-button" @click="onClose">
-        <img :src="icons.close.img" :alt="icons.close.name" />
+        <img :src="closeIcon.img" :alt="closeIcon.name" />
       </div>
   </div>
 </template>
@@ -16,14 +16,12 @@ import CloseIcon from './assets/close-icon-big.png'
 
 export default {
   props: {
-    icons:{
+    closeIcon:{
       type: Object,
       default: function () {
         return {
-          close:{
-            img: CloseIcon,
-            name: 'default',
-          },
+          img: CloseIcon,
+          name: 'default',
         }
       }
     },
