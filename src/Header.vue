@@ -71,8 +71,6 @@ export default {
 }
 
 .sc-header--img {
-  object-fit: cover;
-  object-position: right;
   border-radius: 50%;
   align-self: center;
   padding: 10px;
