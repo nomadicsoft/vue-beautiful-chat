@@ -60,4 +60,5 @@ typings/
 # using yarn.lock, not package-lock.json
 package-lock.json
 
+dist
 build

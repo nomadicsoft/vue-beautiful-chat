@@ -255,9 +255,10 @@ export default {
 .sc-launcher .sc-closed-icon {
   width: 60px;
   height: 60px;
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
+  position: relative;
+  right: auto;
+  bottom: 60px;
+  top: auto;
   transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
 }
 
