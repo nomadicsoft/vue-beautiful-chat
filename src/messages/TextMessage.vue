@@ -80,7 +80,13 @@ export default {
 </script>
 
 <style scoped>
-a.chatLink {
-  color: inherit !important;
-}
+  a.chatLink {
+    color: inherit !important;
+  }
+  .sc-message--text-content >>> a.chatLink-email {
+    color: white;
+  }
+  .sc-message--text-content >>> a.chatLink-url {
+    color: white;
+  }
 </style>
