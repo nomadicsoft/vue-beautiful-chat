@@ -83,10 +83,10 @@ export default {
   a.chatLink {
     color: inherit !important;
   }
-  .sc-message--text-content >>> a.chatLink-email {
-    color: white;
+  .sc-message--content.sent > .sc-message--text > .sc-message--text-content >>> a.chatLink-email {
+    color: white !important;
   }
-  .sc-message--text-content >>> a.chatLink-url {
-    color: white;
+  .sc-message--content.sent > .sc-message--text > .sc-message--text-content >>> a.chatLink-url {
+    color: white !important;
   }
 </style>
