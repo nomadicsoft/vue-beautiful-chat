@@ -155,7 +155,7 @@ export default {
         this._submitTextWhenFile(event, text, file)
       } else if (emoji.length > 0) {
         this._submitTextWhenEmoji(event, text, emoji)
-      } else if (text && text.length > 0) {
+      } else if (text && text.trim().length > 0) {
           this.onSubmit({
             author: 'me',
             type: 'text',
@@ -165,7 +165,7 @@ export default {
       }
     },
     _submitTextWhenFile(event, text, file) {
-      if (text && text.length > 0) {  
+      if (text && text.trim().length > 0) {  
         this.onSubmit({
           author: 'me',
           type: 'file',
@@ -183,7 +183,7 @@ export default {
       }
     },
     _submitTextWhenEmoji(event, text, emojiList) {
-      if (emojiList.length === 1 && text.length === 2) {
+      if (emojiList.length === 1 && text.trim().length === 2) {
         const [emoji] = emojiList
         this.onSubmit({
           author: 'me',
