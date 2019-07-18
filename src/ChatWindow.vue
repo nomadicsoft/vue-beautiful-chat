@@ -1,5 +1,5 @@
 <template>
-  <div class="sc-chat-window" :class="{'sc-is-opened': isOpen, closed: !isOpen}">
+  <div class="sc-chat-window" :class="{opened: isOpen, closed: !isOpen}">
     <Header
       :title="title"
       :imageUrl="titleImageUrl"
@@ -228,7 +228,7 @@ export default {
     bottom: 0px;
   }
 }
-@media only screen and (min-width: 375px) and (orientation: portrait) { 
+@media only screen and (min-width: 375px) and (orientation: portrait) {
   .sc-chat-window {
     width: 100%;
     height: 100%;
