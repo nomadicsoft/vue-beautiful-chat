@@ -1,5 +1,5 @@
 <template>
-  <div class="sc-chat-window" :class="{opened: isOpen, closed: !isOpen}">
+  <div class="sc-chat-window" :class="{'sc-is-opened': isOpen, closed: !isOpen}">
     <Header
       :title="title"
       :imageUrl="titleImageUrl"
@@ -213,6 +213,22 @@ export default {
 }
 
 @media (max-width: 450px) {
+  .sc-chat-window {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 0px;
+  }
+  .sc-chat-window {
+    transition: 0.1s ease-in-out;
+  }
+  .sc-chat-window.closed {
+    bottom: 0px;
+  }
+}
+@media only screen and (min-width: 375px) and (orientation: portrait) { 
   .sc-chat-window {
     width: 100%;
     height: 100%;
