@@ -10,7 +10,7 @@
         :message="message"
         :user="user">
           <div v-if="message.type !== 'system'" :title="authorName" class="sc-message--avatar" :style="{
-            backgroundImage: `url(${chatImageUrl ? chatImageUrl : ''})`
+            backgroundImage: `url(${chatImageUrl})`
           }" v-tooltip="authorName"></div>
       </slot>
 
@@ -97,7 +97,7 @@ export default {
       return this.user && this.user.name;
     },
     chatImageUrl(){
-      return (this.user && this.user.imageUrl) || this.chatIcon;
+      return (this.user && this.user.imageUrl) || this.chatIcon || '';
     }
   }
 }
