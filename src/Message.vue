@@ -5,12 +5,12 @@
         received: message.author !== 'me' && message.type !== 'system',
         system: message.type === 'system'
       }">
-      <slot 
+      <slot
         name="user-avatar"
-        :message="message" 
+        :message="message"
         :user="user">
           <div v-if="message.type !== 'system'" :title="authorName" class="sc-message--avatar" :style="{
-            backgroundImage: `url(${chatImageUrl})`
+            backgroundImage: `url(${chatImageUrl ? chatImageUrl : ''})`
           }" v-tooltip="authorName"></div>
       </slot>
 
